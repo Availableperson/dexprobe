@@ -1,5 +1,5 @@
-const WS_URL = (location.protocol === 'https:' ? 'wss://' : 'ws://') + '192.168.0.102:3000';
-const API_SCAN = '/api/scan';
+const WS_URL = 'wss://a09f-185-5-68-75.ngrok-free.app';
+const API_SCAN = 'https://a09f-185-5-68-75.ngrok-free.app/api/scan';
 
 const table = document.getElementById('scan-table');
 const status = document.getElementById('scan-progress-text');
