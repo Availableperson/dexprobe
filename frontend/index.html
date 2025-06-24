@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>DEX Pool Scanner — Ultra Deep BSC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+  <meta name="description" content="DEX Pool Scanner: ultra-deep поиск ликвидности, пулов и TVL во всех DEX BSC. Быстрее агрегаторов.">
+  <meta name="keywords" content="DEX, BSC, пул, ликвидность, DeFi, сканер, токен, арбитраж, TVL">
+  <meta property="og:title" content="DEX Pool Scanner — Ultra Deep BSC">
+  <meta property="og:description" content="Вся ликвидность BSC в одном месте. Zero compromise. Ultra-Precision.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ВАШ_ДОМЕН">
+  <meta property="og:image" content="https://ВАШ_ДОМЕН/og-preview.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://ВАШ_ДОМЕН/" />
+  <meta name="robots" content="index, follow" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; font-src 'self' https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; script-src 'self'; img-src 'self' data:;">
+  <!-- Google Fonts: Inter & Fira Mono -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,500,700,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700&display=swap" rel="stylesheet">
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/css/app.css?v=1.1" />
+  <!-- Schema.org for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "DEX Pool Scanner",
+    "url": "https://ВАШ_ДОМЕН/"
+  }
+  </script>
+</head>
+<body>
+  <a href="#scan-input" class="visually-hidden" tabindex="1">Пропустить к поиску</a>
+  <main class="main-wrap" role="main">
+    <!-- Header -->
+    <header class="site-header" role="banner">
+      <h1 class="logo" style="margin-top:0;">DEX Pool Scanner</h1>
+      <p class="headline">
+        <span class="headline__accent">Вся ликвидность BSC.</span><br>
+        Один поиск. <span class="headline__bold">Zero compromise.</span>
+      </p>
+      <!-- Поисковая форма -->
+      <form class="searchbox" id="search-form" autocomplete="off" role="search" aria-label="Поиск пула или токена">
+        <label for="scan-input" class="visually-hidden">Поиск по токену, паре, пулу, адресу или DEX</label>
+        <input
+  id="scan-input"
+  type="text"
+  maxlength="48"
+  pattern="[a-zA-Z0-9_\-/,\. ]{1,48}"
+  placeholder="Поиск по токену, паре, пулу, адресу, DEX…"
+  autocomplete="off"
+  aria-label="Поиск"
+  data-testid="search-input"
+  required
+/>
+        <button class="search-btn" id="scan-btn" type="submit" title="Запустить скан" aria-label="Запустить скан" data-testid="search-btn">
+          <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="2" fill="none"/><line x1="14" y1="14" x2="19" y2="19" stroke="currentColor" stroke-width="2"/></svg>
+          <span class="visually-hidden">Поиск</span>
+        </button>
+      </form>
+      <div class="progress-area" aria-live="polite">
+        <div id="scan-progress-bar" class="progress-bar"></div>
+        <div id="scan-progress-text" class="progress-text"></div>
+      </div>
+      <div id="error-msg" aria-live="assertive" tabindex="0"></div>
+      <div class="placeholder">Пример: CAKE/USDT, Thena, 0x…</div>
+      <div id="live-log" class="live-log" role="status" aria-live="polite"></div>
+    </header>
+
+    <!-- Таблица результатов -->
+    <section class="table-area" aria-label="Таблица пулов DEX">
+      <div class="table-responsive">
+        <table id="scan-table" class="dex-table" aria-label="Результаты поиска пулов DEX" tabindex="0">
+          <thead>
+            <tr>
+              <th data-sort="pair">Пара</th>
+              <th data-sort="dex">DEX</th>
+              <th data-sort="version">Верс.</th>
+              <th data-sort="fee">Ком.</th>
+              <th data-sort="price">Цена</th>
+              <th data-sort="liquidity0">Ликвидность0</th>
+              <th data-sort="liquidity1">Ликвидность1</th>
+              <th data-sort="tvl">TVL</th>
+              <th data-sort="tvlTag">TVL Tag</th>
+              <th data-sort="risk">Риск</th>
+              <th data-sort="status">Статус</th>
+              <th data-sort="arbitrage">Arb</th>
+              <th data-sort="freshness">Freshness</th>
+              <th data-sort="maxNoSlippageAmount">MaxNoSlip</th>
+              <th data-sort="pool">Pool</th>
+              <th data-sort="reserve0">reserve0</th>
+              <th data-sort="reserve1">reserve1</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- JS заполнит -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Метрики сканера -->
+    <section class="metrics-cards" id="metrics-cards" role="region" aria-label="Статистика сканера DEX">
+      <div class="metric-card" data-testid="metric-dexes">
+        <div class="metric-value">268</div>
+        <div class="metric-label">DEX-платформ</div>
+      </div>
+      <div class="metric-card" data-testid="metric-pools">
+        <div class="metric-value">12&nbsp;000&nbsp;000+</div>
+        <div class="metric-label">Пулов BSC</div>
+      </div>
+      <div class="metric-card" data-testid="metric-coverage">
+        <div class="metric-value">99.8%</div>
+        <div class="metric-label">Охват рынка</div>
+      </div>
+      <div class="metric-card" data-testid="metric-speed">
+        <div class="metric-value">20+</div>
+        <div class="metric-label">Пулов/сек</div>
+      </div>
+      <div class="metric-card" data-testid="metric-analyze">
+        <div class="metric-value">24/7</div>
+        <div class="metric-label">On-chain анализ <span class="live-dot"></span></div>
+      </div>
+      <div class="metric-card" data-testid="metric-precision">
+        <div class="metric-value">Ultra-Precision</div>
+        <div class="metric-label">Точность TVL</div>
+      </div>
+      <div class="metric-card" data-testid="metric-rank">
+        <div class="metric-value">#1</div>
+        <div class="metric-label">Покрытие BSC</div>
+      </div>
+      <div class="metric-card" data-testid="metric-latency">
+        <div class="metric-value">&lt;0.3 сек</div>
+        <div class="metric-label">Время ответа</div>
+      </div>
+    </section>
+
+    <!-- Промо-блок -->
+    <section class="deep" id="deep-line">
+      <span class="accent-word">On-chain&nbsp;движок</span> — автономно.<br>
+      <span style="font-weight:800;">Институциональное качество.</span><br>
+      Скорость выше любых агрегаторов.<br>
+      Всё, что не видят другие — <span class="you">ты</span> видишь первым.
+    </section>
+
+    <!-- Подвал -->
+    <footer class="brandline" role="contentinfo">
+      <div>
+        Open beta &nbsp;·&nbsp; Полный доступ &nbsp;·&nbsp; API скоро
+      </div>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="/privacy" rel="nofollow">Privacy</a> &nbsp;|&nbsp; 
+        <a href="/terms" rel="nofollow">Terms</a>
+      </nav>
+      <div class="build-info" data-testid="build-version">
+        Версия: <span id="build-version">v1.0.0</span> — <span id="build-date">2025-06-19</span>
+      </div>
+    </footer>
+
+    <!-- Scroll-to-top floating button -->
+    <button class="scroll-to-top-btn" id="scroll-to-top-btn" aria-label="Наверх" title="Наверх" tabindex="0" style="display:none;">
+      <svg width="24" height="24" viewBox="0 0 24 24"><polyline points="6 15 12 9 18 15" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+  </main>
+  <script src="/js/app.js" defer></script>
+</body>
+</html>
