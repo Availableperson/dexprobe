@@ -1,4 +1,4 @@
-const WS_URL = (location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host;
+const WS_URL = (location.protocol === 'https:' ? 'wss://' : 'ws://') + '192.168.0.102:3000';
 const API_SCAN = '/api/scan';
 
 const table = document.getElementById('scan-table');
