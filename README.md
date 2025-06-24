@@ -61,7 +61,7 @@ GET /api/scan-progress
 GET /api/result
 
 
-⸻
+---
 
 ⚙️ Быстрый старт
 
@@ -75,7 +75,7 @@ npm run start
 # По умолчанию сервер: http://localhost:3000
 
 
-⸻
+---
 
 🔒 Лицензия
 
@@ -83,13 +83,13 @@ DexProbe — закрытый, защищённый продукт. Все пр�
 Публичное использование и распространение запрещены без согласия владельца.
 Для партнерств и интеграций — напиши нам.
 
-⸻
+---
 
 👔 Контакты
 	•	Telegram: @dexprobe
 	•	Email: team@dexprobe.xyz
 
-⸻
+---
 
 🌍 Взгляд в будущее
 
@@ -97,9 +97,9 @@ DexProbe — закрытый, защищённый продукт. Все пр�
 DexProbe строит фундамент открытых и конкурентных рынков во всём мире.
 Присоединяйся как партнёр, клиент или инвестор!
 
-⸻
+---
 
-⸻
+---
 
 DexProbe (English)
 
@@ -113,7 +113,7 @@ Our mission: Deliver transparent, actionable, real-time data on DEX liquidity, r
 	•	Real-time API & WebSocket: Streaming liquidity, risk, arbitrage data.
 	•	Scalable, modular architecture: Ready for enterprise integrations.
 
-⸻
+---
 
 🏆 Use Cases
 	•	Trading bots & funds: Instant, actionable data.
@@ -121,7 +121,7 @@ Our mission: Deliver transparent, actionable, real-time data on DEX liquidity, r
 	•	Analytics & research: Market structure, inefficiencies, arbitrage signals.
 	•	DeFi products: Live liquidity, risk metrics integration.
 
-⸻
+---
 
 🔬 Architecture
 
@@ -130,7 +130,7 @@ Our mission: Deliver transparent, actionable, real-time data on DEX liquidity, r
 → [Pricing/Risk Layer] → [TVL/Arbitrage Engine]
 → [Realtime DataStore] → [Frontend/Partner API]
 
-⸻
+---
 
 📊 API Examples
 
@@ -142,7 +142,7 @@ GET /api/scan-progress
 GET /api/result
 
 
-⸻
+---
 
 ⚙️ Quick Start
 
@@ -156,20 +156,20 @@ npm run start
 # Server: http://localhost:3000
 
 
-⸻
+---
 
 🔒 License
 
 DexProbe is private, proprietary software. All rights reserved.
 Public use and redistribution are prohibited without permission.
 
-⸻
+---
 
 👔 Contact
 	•	Telegram: @dexprobe
 	•	Email: team@dexprobe.xyz
 
-⸻
+---
 
 Ready for global partnerships.
 Join us to build the new standard of DeFi infrastructure!
